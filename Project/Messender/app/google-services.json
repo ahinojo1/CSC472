@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "431061403609",
+    "firebase_url": "https://messender-2ed87.firebaseio.com",
+    "project_id": "messender-2ed87",
+    "storage_bucket": "messender-2ed87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431061403609:android:719b53462a3eaf28",
+        "android_client_info": {
+          "package_name": "csc472.depaul.edu.messender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431061403609-k2fvvm05hntu85pu7084qoer9i8mhu32.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3ID6flhXxAdK18CsUAbpf_ZYoomGtcCc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
