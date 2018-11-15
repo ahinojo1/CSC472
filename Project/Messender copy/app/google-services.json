@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "660020724225",
+    "firebase_url": "https://messender-472.firebaseio.com",
+    "project_id": "messender-472",
+    "storage_bucket": "messender-472.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660020724225:android:719b53462a3eaf28",
+        "android_client_info": {
+          "package_name": "csc472.depaul.edu.messender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660020724225-uq1373irjtlj8ujubebmdosb5qt9f7m3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "csc472.depaul.edu.messender",
+            "certificate_hash": "c51e7c63fd1932ad72b73c090236faa5530b981d"
+          }
+        },
+        {
+          "client_id": "660020724225-709n27p2rp6to8fa8j9kpkr7bo2ctesp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW85njBZx-gh-ky9iGCeXFUEp6Id3Kxw8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660020724225-709n27p2rp6to8fa8j9kpkr7bo2ctesp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,6 +5,4 @@
     <string name="email">Email</string>
     <string name="username">Username</string>
     <string name="create_a_new_account">Create a new Account</string>
-    <string name="login">login</string>
-    <string name="Login_Title">Login</string>
 </resources>
