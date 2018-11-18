@@ -1,6 +1,7 @@
 package csc472.depaul.edu.messender.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import csc472.depaul.edu.messender.MessageActivity;
 import csc472.depaul.edu.messender.Model.User;
 import csc472.depaul.edu.messender.R;
 
@@ -34,13 +36,23 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
 
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        User user = mUsers.get(i);
+        final User user = mUsers.get(i);
         viewHolder.username.setText(user.getUsername());
         if(user.getImageURL().equals("default")){
             viewHolder.profile_image.setImageResource(R.mipmap.ic_launcher);
         } else{
             Glide.with(mContext).load(user.getImageURL()).into(viewHolder.profile_image);
         }
+
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MessageActivity.class);
+                intent.putExtra("userid", user.getId());
+                mContext.startActivity(intent);
+            }
+        });
 
     }
 
