@@ -26,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import csc472.depaul.edu.messender.Fragments.ChatsFragment;
+import csc472.depaul.edu.messender.Fragments.ProfileFragment;
 import csc472.depaul.edu.messender.Fragments.UsersFragment;
 import csc472.depaul.edu.messender.Model.User;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -111,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
 
         viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
         viewPagerAdapter.addFragment(new UsersFragment(), "Users");
+        viewPagerAdapter.addFragment(new ProfileFragment(), "Profile");
+
+
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout.setupWithViewPager(viewPager);
