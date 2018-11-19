@@ -4,15 +4,17 @@ public class User {
     private String id;
     private String username;
     private String imageURL;
+    private String search;
 
     public User(){
 
     }
 
-    public User(String id, String username, String imageURL) {
+    public User(String id, String username, String imageURL, String search) {
         this.id = id;
         this.username = username;
         this.imageURL = imageURL;
+        this.search = search;
     }
 
     public String getId() {
@@ -37,5 +39,13 @@ public class User {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
     }
 }

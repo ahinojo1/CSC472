@@ -21,10 +21,17 @@ import csc472.depaul.edu.messender.R;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     private Context mContext;
     private List<User> mUsers;
+    private boolean isChat;
 
     public UserAdapter(Context mContext, List<User> mUsers){
         this.mContext = mContext;
         this.mUsers = mUsers;
+    }
+
+    public UserAdapter(Context mContext, List<User> mUsers, boolean isChat){
+        this.mContext = mContext;
+        this.mUsers = mUsers;
+        this.isChat = isChat;
     }
 
     @NonNull
