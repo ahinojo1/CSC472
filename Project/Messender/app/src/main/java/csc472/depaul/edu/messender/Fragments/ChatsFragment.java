@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ import java.util.List;
 import csc472.depaul.edu.messender.Adapter.UserAdapter;
 import csc472.depaul.edu.messender.Model.Chat;
 import csc472.depaul.edu.messender.Model.User;
+import csc472.depaul.edu.messender.Notifications.Token;
 import csc472.depaul.edu.messender.R;
 
 
@@ -76,9 +78,19 @@ public class ChatsFragment extends Fragment {
             }
         });
 
+        updateToken(FirebaseInstanceId.getInstance().getToken());
+
 
 
         return view;
+    }
+
+    private void updateToken(String token){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Tokens");
+        Token token1 = new Token(token);
+        reference.child(fbUser.getUid()).setValue(token1);
+
+
     }
 
     private void loadChatsList(){
