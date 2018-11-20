@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("No user");
+        getSupportActionBar().setTitle("");
 
 
         profile_image = findViewById(R.id.profile_image);
@@ -81,8 +81,6 @@ public class MainActivity extends AppCompatActivity {
                     User user = dataSnapshot.getValue(User.class);
 
                     username.setText(user.getUsername());
-
-                    username.setText("USERNAME");
 
                     if(user.getImageURL().equals("default")){
                         //we will use the app launcher icon if the profile image is default

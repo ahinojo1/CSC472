@@ -12,63 +12,60 @@
         layout="@layout/bar_layout" />
 
 
-
     <!-- put this in LineaLayout attributes in the empty space -->
     <!-- android:layout_below="@id/toolbar" -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_toRightOf="@+id/toolbar"
         android:gravity="center_horizontal"
-
-        android:padding="16dp"
-        android:layout_height="wrap_content">
+        android:orientation="vertical"
+        android:padding="18dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/create_a_new_account"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/username"
-            android:layout_marginTop="10dp"
-            app:met_floatingLabel="normal"
-            android:hint="@string/username"/>
-
-        <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/username"
+            app:met_floatingLabel="normal" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/email"
-            android:inputType="textEmailAddress"
-            android:layout_marginTop="10dp"
-            app:met_floatingLabel="normal"
-            android:hint="@string/email"/>
-
-        <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/password"
-            android:inputType="textPassword"
             android:layout_marginTop="10dp"
-            app:met_floatingLabel="normal"
-            android:hint="@string/password"/>
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            app:met_floatingLabel="normal" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            app:met_floatingLabel="normal" />
 
 
         <Button
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register"
-            android:id="@+id/btn_register"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="#fff"
             android:layout_marginTop="10dp"
-            />
-
-
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/register"
+            android:textColor="#fff" />
 
 
     </LinearLayout>

@@ -64,10 +64,10 @@ public class ChatsFragment extends Fragment {
                 userList.clear();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Chat chat = snapshot.getValue(Chat.class);
-                    if(chat.getSender().equals((fbUser.getUid()))){
+                    if(chat.getSender().equals((fbUser.getUid())) && !userList.contains(chat.getReceiver())){
                         userList.add(chat.getReceiver());
                     }
-                    if(chat.getReceiver().equals(fbUser.getUid())){
+                    else if(chat.getReceiver().equals(fbUser.getUid()) && !userList.contains(chat.getSender())){
                         userList.add(chat.getSender());
                     }
                 }
@@ -119,7 +119,7 @@ public class ChatsFragment extends Fragment {
                     }
                 }
                 catch (Exception e) {
-                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 userAdapter = new UserAdapter(getContext(), mUsers);
                 recyclerView.setAdapter(userAdapter);
