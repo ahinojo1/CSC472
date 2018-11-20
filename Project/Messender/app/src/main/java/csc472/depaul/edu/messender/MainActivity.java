@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onStart();
 
-
         fbUser = mAuth.getCurrentUser();
 
         String fbUserID = fbUser.getUid();
@@ -93,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
                     //no dataSnapShot - empty do something
                     Toast.makeText(MainActivity.this, "No data found", Toast.LENGTH_SHORT).show();
                 }
-
-                //
 
             }
 

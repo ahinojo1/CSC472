@@ -19,45 +19,45 @@ import csc472.depaul.edu.messender.Model.User;
 import csc472.depaul.edu.messender.R;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
-    private Context mContext;
-    private List<User> mUsers;
+    private Context context;
+    private List<User> userList;
     private boolean isChat;
 
-    public UserAdapter(Context mContext, List<User> mUsers){
-        this.mContext = mContext;
-        this.mUsers = mUsers;
+    public UserAdapter(Context context, List<User> userList){
+        this.context = context;
+        this.userList = userList;
     }
 
-    public UserAdapter(Context mContext, List<User> mUsers, boolean isChat){
-        this.mContext = mContext;
-        this.mUsers = mUsers;
+    public UserAdapter(Context context, List<User> userList, boolean isChat){
+        this.context = context;
+        this.userList = userList;
         this.isChat = isChat;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.user_item, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.user_item, viewGroup, false);
         return new UserAdapter.ViewHolder(view);
     }
 
 
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        final User user = mUsers.get(i);
+        final User user = userList.get(i);
         viewHolder.username.setText(user.getUsername());
         if(user.getImageURL().equals("default")){
             viewHolder.profile_image.setImageResource(R.mipmap.ic_launcher);
         } else{
-            Glide.with(mContext).load(user.getImageURL()).into(viewHolder.profile_image);
+            Glide.with(context).load(user.getImageURL()).into(viewHolder.profile_image);
         }
 
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, MessageActivity.class);
+                Intent intent = new Intent(context, MessageActivity.class);
                 intent.putExtra("userid", user.getId());
-                mContext.startActivity(intent);
+                context.startActivity(intent);
             }
         });
 
@@ -65,7 +65,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mUsers.size();
+        return userList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

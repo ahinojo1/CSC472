@@ -40,11 +40,20 @@
                                 </PersistentState>
                               </value>
                             </entry>
-                          </map>
-                        </option>
-                        <option name="values">
-                          <map>
-                            <entry key="outputIconType" value="ACTIONBAR" />
+                            <entry key="launcher">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="backgroundLayerName" value="ic_launcher_background_pegion" />
+                                      <entry key="foregroundImage" value="$USER_HOME$/Downloads/App_Logo.png" />
+                                      <entry key="foregroundLayerName" value="ic_launcher_foreground_pigeon" />
+                                      <entry key="outputName" value="ic_launcher_homing_pigeon" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
                           </map>
                         </option>
                       </PersistentState>

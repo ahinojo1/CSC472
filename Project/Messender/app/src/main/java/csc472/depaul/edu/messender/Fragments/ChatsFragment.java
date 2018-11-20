@@ -55,8 +55,6 @@ public class ChatsFragment extends Fragment {
 
         userList = new ArrayList<>();
 
-        //reference = FirebaseDatabase.getInstance().getReference("Chatlist").child(fbUser.getUid());
-
         reference = FirebaseDatabase.getInstance().getReference("Chats");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -72,7 +70,7 @@ public class ChatsFragment extends Fragment {
                     }
                 }
                 loadChatsList();
-                //updateToken(FirebaseInstanceId.getInstance().getToken());
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -80,8 +78,6 @@ public class ChatsFragment extends Fragment {
         });
 
         updateToken(FirebaseInstanceId.getInstance().getToken());
-
-
 
         return view;
     }

@@ -47,13 +47,13 @@ public class MessageActivity extends AppCompatActivity {
     CircleImageView profileImage;
     TextView username;
     FirebaseUser fbUser;
-    DatabaseReference reference;
+    DatabaseReference dbRef;
 
     ImageButton btn_send;
     EditText text_send;
 
     MessageAdapter messageAdapter;
-    List<Chat> mchat;
+    List<Chat> chatList;
     RecyclerView recyclerView;
 
     Intent intent;
@@ -99,7 +99,7 @@ public class MessageActivity extends AppCompatActivity {
         userId = intent.getStringExtra("userid");
 
         fbUser = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
+        dbRef = FirebaseDatabase.getInstance().getReference("Users").child(userId);
 
 
         btn_send.setOnClickListener(new View.OnClickListener() {
@@ -120,10 +120,7 @@ public class MessageActivity extends AppCompatActivity {
 
 
 
-
-
-
-        reference.addValueEventListener(new ValueEventListener() {
+        dbRef.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -255,13 +252,13 @@ public class MessageActivity extends AppCompatActivity {
 
     private void readMessages(final String myid, final String userid, final String imageurl){
 
-        mchat = new ArrayList<>();
-        reference = FirebaseDatabase.getInstance().getReference("Chats");
+        chatList = new ArrayList<>();
+        dbRef = FirebaseDatabase.getInstance().getReference("Chats");
 
-        reference.addValueEventListener(new ValueEventListener() {
+        dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                mchat.clear();
+                chatList.clear();
 
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
 
@@ -270,10 +267,10 @@ public class MessageActivity extends AppCompatActivity {
                     if(chat.getSender().equals(userid) && chat.getReceiver().equals(myid) ||
                             chat.getSender().equals(myid) && chat.getReceiver().equals(userid) ){
 
-                        mchat.add(chat);
+                        chatList.add(chat);
                     }
 
-                    messageAdapter = new MessageAdapter(MessageActivity.this,mchat, imageurl);
+                    messageAdapter = new MessageAdapter(MessageActivity.this, chatList, imageurl);
                     recyclerView.setAdapter(messageAdapter);
                 }
             }
