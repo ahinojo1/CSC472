@@ -1,6 +1,7 @@
 package csc472.depaul.edu.messender;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -280,5 +281,22 @@ public class MessageActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void currentUser(String userid){
+        SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
+        editor.putString("currentuser", userid);
+        editor.apply();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        currentUser(userId);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        currentUser("none");
     }
 }
