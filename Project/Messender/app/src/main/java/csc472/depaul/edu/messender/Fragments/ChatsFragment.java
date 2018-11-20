@@ -72,6 +72,7 @@ public class ChatsFragment extends Fragment {
                     }
                 }
                 loadChatsList();
+                //updateToken(FirebaseInstanceId.getInstance().getToken());
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

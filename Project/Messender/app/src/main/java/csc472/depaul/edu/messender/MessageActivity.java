@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -59,7 +60,7 @@ public class MessageActivity extends AppCompatActivity {
     String userId;
 
     APIService apiService;
-    boolean notify;
+    boolean notify =false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +105,7 @@ public class MessageActivity extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                notify = true;
                 String msg = text_send.getText().toString();
                 if(!msg.equals("") && fbUser != null){
                     sendMessage(fbUser.getUid(), userId, msg);
@@ -216,8 +218,9 @@ public class MessageActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Token token = snapshot.getValue(Token.class);
-                    Data data = new Data(fbUser.getUid(), R.mipmap.ic_launcher, username+": "+message, "New Message",
-                            userId);
+                    Data data = new Data(fbUser.getUid(), R.mipmap.ic_launcher, username+": "+message,
+
+                            "New Message", userId);
 
                     Sender sender = new Sender(data, token.getToken());
 
@@ -228,6 +231,7 @@ public class MessageActivity extends AppCompatActivity {
                                     if (response.code() == 200){
                                         if (response.body().success != 1){
                                             Toast.makeText(MessageActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
+                                            Log.i("notification", "failed notification");
                                         }
                                     }
                                 }
