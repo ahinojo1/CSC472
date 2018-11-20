@@ -24,7 +24,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
-        String sented = remoteMessage.getData().get("sented");
+        String sent = remoteMessage.getData().get("sent");
         String user = remoteMessage.getData().get("user");
 
         SharedPreferences preferences = getSharedPreferences("PREFS", MODE_PRIVATE);
@@ -32,7 +32,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (firebaseUser != null && sented.equals(firebaseUser.getUid())){
+        if (firebaseUser != null && sent.equals(firebaseUser.getUid())){
             if (!currentUser.equals(user)) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     sendOreoNotification(remoteMessage);
@@ -59,16 +59,16 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, j, intent, PendingIntent.FLAG_ONE_SHOT);
         Uri defaultSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        //OreoNotification oreoNotification = new OreoNotification(this);
-        //Notification.Builder builder = oreoNotification.getOreoNotification(title, body, pendingIntent,
-        //        defaultSound, icon);
+        OreoNotification oreoNotification = new OreoNotification(this);
+        Notification.Builder builder = oreoNotification.getOreoNotification(title, body, pendingIntent,
+                defaultSound, icon);
 
         int i = 0;
         if (j > 0){
             i = j;
         }
 
-        //oreoNotification.getManager().notify(i, builder.build());
+        oreoNotification.getManager().notify(i, builder.build());
 
     }
 
